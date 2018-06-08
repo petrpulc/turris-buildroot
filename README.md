@@ -19,7 +19,7 @@ Image is based on debian wheezy. All packages required to rebuild turris firmwar
 
 3. Its time to start our container. I am recommending to mount `build_dir` to the host (e.g. to `/opt/turris/build_dir`), because it can grow to 20+ Gb during full firmware rebuild. Also `dl` directory which is used to download port source files should be mounted to host `/opt/turris/dl`:
 
-        sh# mkdir -p  /opt/turris/dl /opt/turris/build_dir && chmod -R 1000:1000 /opt/turris/
+        sh# mkdir -p  /opt/turris/dl /opt/turris/build_dir && chown -R 1000:1000 /opt/turris/
         sh# docker run --name turris_buildroot -v /opt/turris/dl:/opt/turris/openwrt/dl \
         -v /opt/turris/build_dir:/opt/turris/openwrt/build_dir -ti sammcz/turris-buildroot
 
